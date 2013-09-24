@@ -1,4 +1,4 @@
 {
-	"port":		"com5"
-  ,"baudrate":	19200
+	"port":		"com5",
+	"baudrate":	19200
 }

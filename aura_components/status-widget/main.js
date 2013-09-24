@@ -17,8 +17,8 @@ define(['underscore','text!./template.tmpl','text!./close.tmpl','backbone'],
           //this.model.set("errormessage",true);
       },   
       ondata:function(data) {
-        console.log(data.toString())
-        this.$el.find("#consoleOut").append(data.toString())
+//      console.log(data.toString())
+//      this.$el.find("#consoleOut").append(data.toString())
           //this.model.set("errormessage",true);
       }, 
       trying:function() {
@@ -29,12 +29,12 @@ define(['underscore','text!./template.tmpl','text!./close.tmpl','backbone'],
         this.$el.html( _.template(template,obj) );
       },
       model:new Backbone.Model({port:'com5',baud:19200,connected:false}),
-      onkeydown:function(e) {
+/*    onkeydown:function(e) {
         if (e.keycode=13) {
           this.sandbox.emit("consoleIn",this.$el.find("#consoleIn").val())
         }
       },
-      // C. 啟動 網頁畫面
+*/    // C. 啟動 網頁畫面
       initialize: function() {
         // B. 套 template.tmpl 設定 my-widget 對應的 innerHTML
         this.model.on("change",this.render,this);
@@ -44,7 +44,7 @@ define(['underscore','text!./template.tmpl','text!./close.tmpl','backbone'],
         this.sandbox.on("error",this.onerror,this)
         this.sandbox.on("trying",this.trying,this)
         this.render()
-        this.$el.find("#consoleIn").bind(this.onkeydown)
+//        this.$el.find("#consoleIn").bind(this.onkeydown)
       }
     }
 });

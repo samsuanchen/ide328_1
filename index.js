@@ -1,12 +1,13 @@
 define(['aura'], function(Aura) {
-	console.log(Date()+'loading index.js')
-	var app=Aura({debug:{enable:true}})
-	app.components.addSource('aura', '../node_webkit/auraext')
-	app.use('../node_webkit/auraext/aura-backbone')
-	app.use('../node_webkit/auraext/aura-yadb')
-	app.start({ widgets: 'body' }).then(function() {
-		// 起動 aura_components 目錄中
-    	//  各子目錄 (connect-widget 及 status-widget) 的 main.js
-    	console.log(Date()+'Aura Started')
-    })
+	console.log(Date()+' === loading index.js')
+	Aura({debug:{enable:true}})
+		.components.addSource('aura', '../node_webkit/auraext')
+		.use('../node_webkit/auraext/aura-backbone')
+		.use('../node_webkit/auraext/aura-yadb')
+		.start({ widgets: 'body' })
+		// 啟動 aura_components 目錄中各子目錄的 main.js, 包括:
+    	// connect、status、console-out、console-in 對應的 *-widget 子目錄
+		.then(function() { 
+    		console.log(Date()+' === Aura Started')
+    	})
 });
